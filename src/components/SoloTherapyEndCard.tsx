@@ -33,46 +33,46 @@ export const SoloTherapyEndCard: React.FC<SoloTherapyEndCardProps> = ({
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
-  // Text phases
+  // Text phases — the card runs 210 frames (7s): greeting, tribute, then logo.
   const greeting1Opacity = interpolate(
     frameInSequence,
-    [0, 30, 60, 80],
+    [0, 20, 62, 80],
     [0, 1, 1, 0],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const greeting2Opacity = interpolate(
     frameInSequence,
-    [40, 60, 100, 130],
+    [60, 78, 142, 158],
     [0, 1, 1, 0],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const taglineOpacity = interpolate(
     frameInSequence,
-    [80, 100],
+    [154, 170],
     [0, 1],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
-  // Logo reveal - scale and fade
+  // Logo reveal - scale and fade, held to the end
   const logoScale = interpolate(
     frameInSequence,
-    [100, 120],
-    [0.8, 1],
+    [142, 164],
+    [0.85, 1],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const logoOpacity = interpolate(
     frameInSequence,
-    [100, 120],
+    [142, 160],
     [0, 1],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const handleleOpacity = interpolate(
     frameInSequence,
-    [130, 150],
+    [166, 182],
     [0, 1],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
@@ -152,19 +152,6 @@ export const SoloTherapyEndCard: React.FC<SoloTherapyEndCardProps> = ({
         ))}
       </svg>
 
-      {/* Content overlay */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
-          opacity: bgOpacity,
-        }}
-      />
-
       {/* Text content */}
       <div
         style={{
@@ -229,12 +216,26 @@ export const SoloTherapyEndCard: React.FC<SoloTherapyEndCardProps> = ({
               transition: 'none',
             }}
           >
+            {/* Warm seat behind the logo so its saturated color belongs to the film */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                width: 520,
+                height: 520,
+                transform: 'translate(-50%, -50%)',
+                background:
+                  'radial-gradient(circle, rgba(215, 198, 174, 0.55) 0%, transparent 65%)',
+              }}
+            />
             <Img
               src={getLogoPath()}
               style={{
+                position: 'relative',
                 maxWidth: 300,
                 maxHeight: 300,
-                filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2))',
+                mixBlendMode: 'multiply',
               }}
             />
           </div>
@@ -271,9 +272,10 @@ export const SoloTherapyEndCard: React.FC<SoloTherapyEndCardProps> = ({
         <div
           style={{
             opacity: taglineOpacity,
-            fontSize: 28,
+            fontSize: 34,
             fontWeight: 'normal',
-            marginTop: 200,
+            marginTop: 230,
+            color: STYLE.colors.deepOlive,
             fontFamily: STYLE.fonts.serif,
           }}
         >
@@ -285,11 +287,12 @@ export const SoloTherapyEndCard: React.FC<SoloTherapyEndCardProps> = ({
         <div
           style={{
             opacity: handleleOpacity,
-            fontSize: 24,
-            fontWeight: 'normal',
+            fontSize: 30,
+            fontWeight: 500,
             marginTop: 40,
+            color: STYLE.colors.charcoal,
             fontFamily: STYLE.fonts.sans,
-            letterSpacing: '0.05em',
+            letterSpacing: '0.06em',
           }}
         >
           @solotherapy

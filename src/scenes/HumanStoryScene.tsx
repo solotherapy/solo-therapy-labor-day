@@ -51,42 +51,42 @@ export const HumanStoryScene: React.FC = () => {
       {/* Text sequence */}
       <CinematicText
         text="Behind every job"
-        startFrame={30}
-        endFrame={90}
+        startFrame={22}
+        endFrame={88}
         fontSize={72}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={15}
+        fadeInDuration={8}
+        fadeOutDuration={8}
       />
 
       <CinematicText
         text="is a person."
-        startFrame={75}
-        endFrame={150}
+        startFrame={80}
+        endFrame={152}
         fontSize={72}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={15}
+        fadeInDuration={8}
+        fadeOutDuration={8}
       />
 
       <CinematicText
         text="A story."
-        startFrame={150}
-        endFrame={210}
+        startFrame={144}
+        endFrame={198}
         fontSize={72}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={15}
+        fadeInDuration={8}
+        fadeOutDuration={8}
       />
 
       <CinematicText
         text="A purpose."
-        startFrame={210}
+        startFrame={190}
         endFrame={durationFrames}
         fontSize={72}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={15}
+        fadeInDuration={8}
+        fadeOutDuration={10}
       />
     </Sequence>
   );

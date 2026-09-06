@@ -68,6 +68,19 @@ export const CinematicText: React.FC<CinematicTextProps> = ({
         padding: '0 40px',
       }}
     >
+      {/* Feathered scrim keeps the type on dark ground whatever drifts behind it */}
+      <div
+        style={{
+          position: 'absolute',
+          left: '-10%',
+          right: '-10%',
+          top: '30%',
+          height: '40%',
+          opacity: opacity * 0.9,
+          background:
+            'radial-gradient(ellipse 55% 45% at 50% 50%, rgba(22, 24, 19, 0.34) 0%, rgba(22, 24, 19, 0.16) 48%, transparent 72%)',
+        }}
+      />
       <div
         style={{
           textAlign: align,

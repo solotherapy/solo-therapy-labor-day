@@ -23,10 +23,10 @@ export const STYLE = {
 export const SCENE_DURATIONS = {
   opening: 5, // 0-5
   workers1: 7, // 5-12
-  hands: 14, // 12-26
-  emotional: 9, // 26-35
-  closing: 5, // 35-40
-  endCard: 5, // 40-45
+  hands: 13, // 12-25
+  emotional: 8, // 25-33
+  closing: 5, // 33-38
+  endCard: 7, // 38-45
 } as const;
 
 export const PATHS = {

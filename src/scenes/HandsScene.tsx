@@ -78,42 +78,42 @@ export const HandsScene: React.FC = () => {
       {/* Text overlays - sync with clips */}
       <CinematicText
         text="Hands that build."
-        startFrame={30}
-        endFrame={120}
+        startFrame={22}
+        endFrame={110}
         fontSize={72}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={15}
+        fadeInDuration={8}
+        fadeOutDuration={8}
       />
 
       <CinematicText
         text="Hands that heal."
-        startFrame={120}
-        endFrame={200}
+        startFrame={102}
+        endFrame={202}
         fontSize={72}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={15}
+        fadeInDuration={8}
+        fadeOutDuration={8}
       />
 
       <CinematicText
         text="Hands that create."
-        startFrame={200}
-        endFrame={300}
+        startFrame={194}
+        endFrame={298}
         fontSize={72}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={15}
+        fadeInDuration={8}
+        fadeOutDuration={8}
       />
 
       <CinematicText
         text="Hands that care."
-        startFrame={300}
+        startFrame={290}
         endFrame={durationFrames}
         fontSize={72}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={15}
+        fadeInDuration={8}
+        fadeOutDuration={10}
       />
     </Sequence>
   );

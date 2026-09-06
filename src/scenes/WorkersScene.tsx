@@ -56,32 +56,32 @@ export const WorkersScene: React.FC = () => {
       {/* Text overlays */}
       <CinematicText
         text="Different paths."
-        startFrame={30}
+        startFrame={22}
         endFrame={90}
         fontSize={76}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={15}
+        fadeInDuration={8}
+        fadeOutDuration={8}
       />
 
       <CinematicText
         text="Different skills."
-        startFrame={90}
-        endFrame={150}
+        startFrame={82}
+        endFrame={156}
         fontSize={76}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={15}
+        fadeInDuration={8}
+        fadeOutDuration={8}
       />
 
       <CinematicText
         text="One shared dedication."
-        startFrame={150}
+        startFrame={148}
         endFrame={durationFrames}
         fontSize={76}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={15}
+        fadeInDuration={8}
+        fadeOutDuration={10}
       />
     </Sequence>
   );

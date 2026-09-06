@@ -28,22 +28,22 @@ export const ClosingScene: React.FC = () => {
       {/* Text overlays */}
       <CinematicText
         text="Today, we honor the work."
-        startFrame={30}
-        endFrame={90}
+        startFrame={22}
+        endFrame={92}
         fontSize={66}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={15}
+        fadeInDuration={8}
+        fadeOutDuration={8}
       />
 
       <CinematicText
         text={['And the people', 'behind it.']}
-        startFrame={90}
-        endFrame={durationFrames - 15}
+        startFrame={84}
+        endFrame={durationFrames - 8}
         fontSize={66}
         fontFamily="serif"
-        fadeInDuration={15}
-        fadeOutDuration={20}
+        fadeInDuration={8}
+        fadeOutDuration={12}
       />
     </Sequence>
   );

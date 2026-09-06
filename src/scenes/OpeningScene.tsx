@@ -21,12 +21,12 @@ export const OpeningScene: React.FC = () => {
       {/* Text overlay */}
       <CinematicText
         text={['Every day begins', 'with someone showing up.']}
-        startFrame={30}
-        endFrame={durationFrames - 15}
+        startFrame={24}
+        endFrame={durationFrames - 2}
         fontSize={82}
         fontFamily="serif"
-        fadeInDuration={20}
-        fadeOutDuration={15}
+        fadeInDuration={12}
+        fadeOutDuration={10}
       />
     </Sequence>
   );
