@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Welcome September 2026 Square</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Baloo+2:wght@700;800&family=Nunito:ital,wght@0,800;0,900;1,800;1,900&display=swap">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { width: 1400px; height: 1400px; overflow: hidden; }
+  .banner {
+    position: relative; width: 1400px; height: 1400px; overflow: hidden;
+    background:
+      radial-gradient(560px 420px at 26% 52%, rgba(140,198,110,0.28), transparent 72%),
+      linear-gradient(120deg, #0c4636 0%, #135843 32%, #1e6b50 55%, #35845f 78%, #5fac7f 100%);
+    font-family: "Nunito", "Segoe UI", sans-serif;
+  }
+
+  .photo {
+    position: absolute; right: 0; bottom: 0; width: 1000px; height: 900px;
+    background: url("sky-heart-leaf.jpg") no-repeat 25% 50%;
+    background-size: cover;
+    filter: saturate(1.45) contrast(1.03);
+    -webkit-mask-image: radial-gradient(120% 115% at 82% 80%, #000 46%, rgba(0,0,0,0.55) 58%, transparent 70%);
+    mask-image: radial-gradient(120% 115% at 82% 80%, #000 46%, rgba(0,0,0,0.55) 58%, transparent 70%);
+  }
+
+  .deco { position: absolute; inset: 0; }
+
+  .logo-tab {
+    position: absolute; top: 0; left: 0;
+    background: #ffffff; border-radius: 0 0 40px 0;
+    padding: 20px 30px 24px 26px;
+    box-shadow: 0 8px 22px rgba(6, 40, 26, 0.35);
+  }
+  .logo-tab img { height: 108px; width: auto; display: block; }
+
+  .ol { position: relative; z-index: 0; display: inline-block; }
+  .ol::before {
+    content: attr(data-text); position: absolute; inset: 0; z-index: -1;
+    -webkit-text-stroke: 16px #5aa53e;
+    text-shadow: 0 14px 26px rgba(6, 45, 22, 0.55);
+  }
+
+  .headline { position: absolute; left: 105px; top: 218px; transform: rotate(-5deg); }
+  .w1, .w2 {
+    font-family: "Pacifico", "Brush Script MT", cursive; color: #ffffff;
+    line-height: 1.22; margin: 0;
+  }
+  .w1 { font-size: 150px; }
+  .w2 { font-size: 130px; margin: -16px 0 0 72px; }
+
+  .offer { position: absolute; left: 105px; top: 640px; display: flex; align-items: center; gap: 26px; }
+  .pct {
+    font-family: "Baloo 2", "Arial Rounded MT Bold", sans-serif; font-weight: 800;
+    font-size: 175px; line-height: 1; color: #ffffff;
+  }
+  .pct.ol::before { -webkit-text-stroke: 18px #5aa53e; }
+  .hibiscus { width: 92px; height: 92px; margin-top: 36px; }
+  .offer-col { display: flex; flex-direction: column; gap: 13px; margin-top: 12px; }
+  .off-store {
+    font-family: "Nunito", sans-serif; font-style: italic; font-weight: 900;
+    font-size: 72px; line-height: 1; color: #d9ea62; letter-spacing: 0.01em;
+  }
+  .off-store.ol::before { -webkit-text-stroke: 10px #2d7136; }
+  .coupon {
+    align-self: flex-start;
+    background: linear-gradient(90deg, #e4f0a4 0%, #b7d766 55%, #9cc84e 100%);
+    border-radius: 8px; padding: 11px 30px 13px 22px;
+    font-style: italic; font-weight: 900; font-size: 46px; line-height: 1;
+    box-shadow: 0 8px 18px rgba(6, 45, 22, 0.35);
+  }
+  .coupon .lbl { color: #d9a514; padding-right: 12px; }
+  .coupon .code { color: #14502e; font-style: normal; letter-spacing: 0.05em; }
+
+  .pills {
+    position: absolute; left: 105px; bottom: 64px;
+    display: flex; flex-wrap: wrap; gap: 20px; width: 760px;
+  }
+  .pill {
+    background: #124e37; color: #ffffff;
+    font-style: italic; font-weight: 800; font-size: 34px; line-height: 1;
+    padding: 15px 27px 17px; border-radius: 11px;
+    box-shadow: 0 6px 16px rgba(6, 40, 26, 0.4);
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="photo"></div>
+
+  <svg class="deco" viewBox="0 0 1400 1400" fill="none" aria-hidden="true">
+    <defs>
+      <g id="pleaf" stroke-linecap="round" fill="none">
+        <path d="M0 0 C14 -50 14 -150 0 -200 C-14 -150 -14 -50 0 0 Z"/>
+        <path d="M0 0 C40 -40 70 -110 74 -168 C30 -130 6 -60 0 0 Z"/>
+        <path d="M0 0 C-40 -40 -70 -110 -74 -168 C-30 -130 -6 -60 0 0 Z"/>
+        <path d="M0 0 C56 -20 96 -66 110 -116 C58 -92 18 -40 0 0 Z"/>
+        <path d="M0 0 C-56 -20 -96 -66 -110 -116 C-58 -92 -18 -40 0 0 Z"/>
+        <path d="M0 0 C58 6 96 -8 122 -40 C76 -40 26 -18 0 0 Z"/>
+        <path d="M0 0 C-58 6 -96 -8 -122 -40 C-76 -40 -26 -18 0 0 Z"/>
+        <path d="M0 0 L0 56"/>
+      </g>
+    </defs>
+    <use href="#pleaf" transform="translate(780 320) scale(1.5) rotate(24)" stroke="#a8d693" opacity="0.15" stroke-width="4"/>
+    <use href="#pleaf" transform="translate(300 940) scale(1.2) rotate(-18)" stroke="#a8d693" opacity="0.13" stroke-width="4"/>
+    <use href="#pleaf" transform="translate(560 1240) scale(1.35) rotate(14)" stroke="#a8d693" opacity="0.10" stroke-width="4"/>
+    <use href="#pleaf" transform="translate(1290 165) scale(1.25) rotate(150)" stroke="#ffffff" opacity="0.45" stroke-width="3"/>
+    <circle cx="40" cy="1060" r="200" stroke="#a8d693" opacity="0.10" stroke-width="3"/>
+    <circle cx="40" cy="1060" r="150" stroke="#a8d693" opacity="0.08" stroke-width="3"/>
+  </svg>
+
+  <div class="logo-tab"><img src="solo-therapy-logo.png" alt="Solo Therapy"></div>
+
+  <div class="headline">
+    <p class="w1"><span class="ol" data-text="Welcome">Welcome</span></p>
+    <p class="w2"><span class="ol" data-text="September 2026!">September 2026!</span></p>
+  </div>
+
+  <div class="offer">
+    <span class="pct ol" data-text="15%">15%</span>
+    <svg class="hibiscus" viewBox="-60 -60 120 120" aria-hidden="true">
+      <g>
+        <g fill="#ec5b7e" stroke="#c93a5e" stroke-width="2">
+          <ellipse cx="0" cy="-30" rx="21" ry="31"/>
+          <ellipse cx="0" cy="-30" rx="21" ry="31" transform="rotate(72)"/>
+          <ellipse cx="0" cy="-30" rx="21" ry="31" transform="rotate(144)"/>
+          <ellipse cx="0" cy="-30" rx="21" ry="31" transform="rotate(216)"/>
+          <ellipse cx="0" cy="-30" rx="21" ry="31" transform="rotate(288)"/>
+        </g>
+        <circle cx="0" cy="0" r="10" fill="#b8264c"/>
+        <line x1="0" y1="0" x2="26" y2="-34" stroke="#f2c94c" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="26" cy="-34" r="5" fill="#f2c94c"/>
+        <circle cx="18" cy="-40" r="3.5" fill="#f2c94c"/>
+        <circle cx="32" cy="-26" r="3.5" fill="#f2c94c"/>
+      </g>
+    </svg>
+    <div class="offer-col">
+      <span class="off-store ol" data-text="Off Entire Store">Off Entire Store</span>
+      <div class="coupon"><span class="lbl">Coupon Code:</span><span class="code">MORINGA</span></div>
+    </div>
+  </div>
+
+  <div class="pills">
+    <div class="pill">Herbal Therapy</div>
+    <div class="pill">Rituals Therapy</div>
+    <div class="pill">Essential Oil Therapy</div>
+    <div class="pill">Candles</div>
+  </div>
+</div>
+</body>
+</html>

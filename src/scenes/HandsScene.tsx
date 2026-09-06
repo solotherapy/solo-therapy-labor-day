@@ -1,0 +1,120 @@
+import React from 'react';
+import { Sequence } from 'remotion';
+import { CinematicVideo } from '../components/CinematicVideo.js';
+import { CinematicText } from '../components/CinematicText.js';
+import { SCENE_DURATIONS } from '../config.js';
+import { getGeneratedClipPath } from '../lib/asset.js';
+
+const startFrame =
+  (SCENE_DURATIONS.opening + SCENE_DURATIONS.workers1) * 30;
+const durationFrames = SCENE_DURATIONS.hands * 30; // 420 frames = 14 seconds
+
+export const HandsScene: React.FC = () => {
+  const clipDuration = Math.floor(durationFrames / 6);
+
+  return (
+    <Sequence from={startFrame} durationInFrames={durationFrames}>
+      {/* Farmer */}
+      <Sequence from={0} durationInFrames={clipDuration}>
+        <CinematicVideo
+          src={getGeneratedClipPath('hands-farmer.mp4')}
+          startFrame={0}
+          duration={clipDuration}
+          warmOverlay
+          enableZoom
+        />
+      </Sequence>
+
+      {/* Firefighter */}
+      <Sequence from={clipDuration} durationInFrames={clipDuration}>
+        <CinematicVideo
+          src={getGeneratedClipPath('hands-firefighter.mp4')}
+          startFrame={0}
+          duration={clipDuration}
+          warmOverlay
+        />
+      </Sequence>
+
+      {/* Hairstylist */}
+      <Sequence from={clipDuration * 2} durationInFrames={clipDuration}>
+        <CinematicVideo
+          src={getGeneratedClipPath('hands-hairstylist.mp4')}
+          startFrame={0}
+          duration={clipDuration}
+          warmOverlay
+        />
+      </Sequence>
+
+      {/* Delivery */}
+      <Sequence from={clipDuration * 3} durationInFrames={clipDuration}>
+        <CinematicVideo
+          src={getGeneratedClipPath('hands-delivery.mp4')}
+          startFrame={0}
+          duration={clipDuration}
+          warmOverlay
+        />
+      </Sequence>
+
+      {/* Business */}
+      <Sequence from={clipDuration * 4} durationInFrames={clipDuration}>
+        <CinematicVideo
+          src={getGeneratedClipPath('hands-business.mp4')}
+          startFrame={0}
+          duration={clipDuration}
+          warmOverlay
+        />
+      </Sequence>
+
+      {/* Therapist */}
+      <Sequence from={clipDuration * 5} durationInFrames={clipDuration}>
+        <CinematicVideo
+          src={getGeneratedClipPath('hands-therapist.mp4')}
+          startFrame={0}
+          duration={clipDuration}
+          warmOverlay
+        />
+      </Sequence>
+
+      {/* Text overlays - sync with clips */}
+      <CinematicText
+        text="Hands that build."
+        startFrame={30}
+        endFrame={120}
+        fontSize={52}
+        fontFamily="serif"
+        fadeInDuration={15}
+        fadeOutDuration={15}
+      />
+
+      <CinematicText
+        text="Hands that heal."
+        startFrame={120}
+        endFrame={200}
+        fontSize={52}
+        fontFamily="serif"
+        fadeInDuration={15}
+        fadeOutDuration={15}
+      />
+
+      <CinematicText
+        text="Hands that create."
+        startFrame={200}
+        endFrame={300}
+        fontSize={52}
+        fontFamily="serif"
+        fadeInDuration={15}
+        fadeOutDuration={15}
+      />
+
+      <CinematicText
+        text="Hands that care."
+        startFrame={300}
+        endFrame={durationFrames}
+        fontSize={52}
+        fontFamily="serif"
+        fadeInDuration={15}
+        fadeOutDuration={15}
+      />
+    </Sequence>
+  );
+};

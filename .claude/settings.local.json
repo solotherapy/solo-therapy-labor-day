@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__mcp-registry__search_mcp_registry",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__claude-in-chrome__read_page",
+      "WebSearch",
+      "mcp__mcp-registry__list_connectors",
+      "PowerShell(Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force)",
+      "PowerShell(& \"C:\\\\Users\\\\Solo Therapy\\\\Solo Therapy \\( CLAUDE\\)\\\\outlook-integration.ps1\" -Action unread-count)",
+      "PowerShell(Get-Process -Name Outlook -ErrorAction SilentlyContinue)",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(find . -maxdepth 2 -type d ! -path '*/\\\\.*' ! -path '*/node_modules')",
+      "Bash(awk '{print \" \" $9 \" \\(\" $5 \"\\)\"}')",
+      "Bash(npm run *)",
+      "Bash(npx remotion *)",
+      "Bash(npm ls *)",
+      "Bash(node_modules/.bin/remotion --version)"
+    ]
+  }
+}

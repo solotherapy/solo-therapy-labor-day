@@ -1,0 +1,101 @@
+═══════════════════════════════════════════════════════════════════
+BULK INQUIRY EMAILS - READY TO SEND
+═══════════════════════════════════════════════════════════════════
+
+You have 4 formatted emails ready to send. Follow the steps below:
+
+═══════════════════════════════════════════════════════════════════
+EMAIL #1: ISHIBASHI MUSIC (RECOMMENDED FIRST)
+═══════════════════════════════════════════════════════════════════
+
+File: email_1_ishibashi.txt
+
+STEPS:
+1. Open the file email_1_ishibashi.txt
+2. Copy all the content (Ctrl+A, then Ctrl+C)
+3. Open Outlook on your computer
+4. Click "New Email"
+5. In the "To:" field, paste: imj@ishibashi.co.jp
+6. In the "Subject:" field, paste: Bulk Used Clarinets & Saxophones Wholesale Inquiry - California
+7. In the body, paste the rest of the email content
+8. Click "Send"
+
+═══════════════════════════════════════════════════════════════════
+EMAIL #2: SHIMOKURA MUSICAL INSTRUMENTS
+═══════════════════════════════════════════════════════════════════
+
+File: email_2_shimokura.txt
+
+STEPS:
+1. First, find their contact email:
+   - Visit: http://www.shimokura-gakki.com/english/accessmap.html
+   - Look for phone number or contact email
+2. Open the file email_2_shimokura.txt
+3. Copy all content
+4. Open Outlook and create a new email
+5. Paste recipient email in "To:" field
+6. Paste subject line
+7. Paste email body content
+8. Click "Send"
+
+═══════════════════════════════════════════════════════════════════
+EMAIL #3: LEXT MUSIC TOKYO
+═══════════════════════════════════════════════════════════════════
+
+File: email_3_lext_music.txt
+
+STEPS:
+1. First, find their contact email:
+   - Visit: https://lextmusic.tokyo/
+   - Look for contact form or email address
+2. Open the file email_3_lext_music.txt
+3. Copy all content
+4. Open Outlook and create a new email
+5. Paste recipient email in "To:" field
+6. Paste subject line and body content
+7. Click "Send"
+
+═══════════════════════════════════════════════════════════════════
+EMAIL #4: TCGAKKI
+═══════════════════════════════════════════════════════════════════
+
+File: email_4_tcgakki.txt
+
+STEPS:
+1. First, find their contact email:
+   - Visit: https://tcgakki.com/en
+   - Look for contact form or email address
+2. Open the file email_4_tcgakki.txt
+3. Copy all content
+4. Open Outlook and create a new email
+5. Paste recipient email in "To:" field
+6. Paste subject line and body content
+7. Click "Send"
+
+═══════════════════════════════════════════════════════════════════
+QUICK SUMMARY
+═══════════════════════════════════════════════════════════════════
+
+Email 1 (MUST SEND):
+TO: imj@ishibashi.co.jp
+
+Email 2 (RECOMMENDED):
+TO: [Get from shimokura-gakki.com/english/accessmap.html]
+
+Email 3:
+TO: [Get from lextmusic.tokyo/]
+
+Email 4:
+TO: [Get from tcgakki.com/en]
+
+═══════════════════════════════════════════════════════════════════
+TIPS
+═══════════════════════════════════════════════════════════════════
+
+✓ Send Email #1 to Ishibashi first - they're the easiest to work with
+✓ Expect responses in 1-3 business days (Japan time)
+✓ All emails are identical in content, just sent to different suppliers
+✓ This increases your chances of finding good bulk lots
+✓ Keep responses and reply promptly with order details
+
+═══════════════════════════════════════════════════════════════════

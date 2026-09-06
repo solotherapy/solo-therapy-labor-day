@@ -1,0 +1,440 @@
+<title>Solo Therapy Post Samples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Archivo:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #faf7f1;
+    --ink: #2c2519;
+    --ink-soft: #6b5f4b;
+    --line: #e3dcc9;
+    --card: #ffffff;
+    --card-line: #e8e1d0;
+    --accent: #a3701f;
+    --chip-bg: #f1ead9;
+    --code-bg: #f5f0e4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1c1813;
+      --ink: #ece5d6;
+      --ink-soft: #a89a7f;
+      --line: #383023;
+      --card: #262019;
+      --card-line: #3a3223;
+      --accent: #d9ad55;
+      --chip-bg: #2e2719;
+      --code-bg: #241f16;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1c1813;
+    --ink: #ece5d6;
+    --ink-soft: #a89a7f;
+    --line: #383023;
+    --card: #262019;
+    --card-line: #3a3223;
+    --accent: #d9ad55;
+    --chip-bg: #2e2719;
+    --code-bg: #241f16;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Archivo", "Segoe UI", system-ui, sans-serif;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  header.page { margin-bottom: 40px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin: 0 0 10px;
+  }
+  h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 600; font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.08; margin: 0 0 14px; text-wrap: balance;
+  }
+  .lede { max-width: 62ch; color: var(--ink-soft); font-size: 16px; margin: 0; }
+
+  .formula {
+    border: 1px solid var(--line); border-radius: 10px;
+    background: var(--card); padding: 26px 28px; margin: 36px 0 56px;
+  }
+  .formula h2 {
+    font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600;
+    font-size: 26px; margin: 0 0 14px;
+  }
+  .formula ol { margin: 0; padding-left: 20px; display: grid; gap: 9px; }
+  .formula li { max-width: 75ch; }
+  .formula li strong { font-weight: 600; }
+  .formula li span.note { color: var(--ink-soft); }
+
+  .sample { display: grid; grid-template-columns: minmax(280px, 430px) 1fr; gap: 34px; margin-bottom: 72px; align-items: start; }
+  @media (max-width: 780px) { .sample { grid-template-columns: 1fr; } }
+
+  .sample-head { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+  .sample-head h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 28px; margin: 0; }
+  .sample-head .kind { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+
+  .frame-col { display: flex; flex-direction: column; gap: 10px; }
+  .post-frame { width: 100%; aspect-ratio: 4 / 5; position: relative; overflow: hidden; border-radius: 6px; box-shadow: 0 8px 28px rgba(30, 22, 8, 0.18); }
+  .post-inner { width: 1080px; height: 1350px; position: absolute; top: 0; left: 0; transform-origin: top left; }
+  .specs { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font-size: 11.5px; background: var(--chip-bg); color: var(--ink-soft); border-radius: 999px; padding: 3px 10px; letter-spacing: .02em; }
+
+  .caption-card { background: var(--card); border: 1px solid var(--card-line); border-radius: 10px; padding: 22px 24px; }
+  .caption-card h3 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; margin: 0 0 12px; }
+  .caption-text { white-space: pre-line; font-size: 14.5px; line-height: 1.65; margin: 0 0 16px; }
+  .caption-text .tags { color: var(--ink-soft); font-size: 13px; }
+  .why { border-top: 1px dashed var(--line); padding-top: 12px; font-size: 13.5px; color: var(--ink-soft); margin: 0 0 14px; }
+  .why b { color: var(--ink); font-weight: 600; }
+  button.copy {
+    font: 600 13px "Archivo", system-ui, sans-serif; letter-spacing: .04em;
+    background: var(--ink); color: var(--bg); border: 0; border-radius: 6px;
+    padding: 9px 16px; cursor: pointer;
+  }
+  button.copy:hover { background: var(--accent); }
+  button.copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  footer.page { border-top: 1px solid var(--line); padding-top: 18px; color: var(--ink-soft); font-size: 13.5px; max-width: 75ch; }
+
+  /* ---------- POST ARTWORK (fixed palette by design — this is the artwork itself) ---------- */
+  .post-inner { font-family: "EB Garamond", Georgia, serif; }
+  .parchment {
+    background:
+      radial-gradient(140% 90% at 50% 0%, #f6f0df 0%, #f1e9d4 55%, #eadfc2 100%);
+    color: #2b2418;
+  }
+  .parchment .art { position: absolute; inset: 0; }
+  .post-copy { position: absolute; left: 96px; right: 96px; top: 150px; }
+  .hook {
+    font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600;
+    font-size: 104px; line-height: 1.12; margin: 0; color: #241d10;
+    text-wrap: balance;
+  }
+  .subs { margin-top: 350px; }
+  .sub { font-size: 46px; line-height: 1.5; margin: 0 0 8px; color: #3a3222; }
+  .hl {
+    display: inline-block; padding: 2px 22px 6px; transform: rotate(-0.6deg);
+    background: linear-gradient(100deg, rgba(233,191,70,0.0) 0%, rgba(233,191,70,0.9) 3%, rgba(230,185,62,0.85) 50%, rgba(233,191,70,0.88) 97%, rgba(233,191,70,0.0) 100%);
+    border-radius: 6px 10px 8px 6px;
+  }
+  .wm {
+    position: absolute; bottom: 64px; left: 0; right: 0; text-align: center;
+    font-family: "Archivo", sans-serif; font-size: 27px; letter-spacing: 0.42em;
+    color: rgba(60, 48, 24, 0.62); font-weight: 500;
+  }
+  .wm .dot { color: rgba(163, 112, 31, .8); }
+
+  /* Etymology card */
+  .etym {
+    background: radial-gradient(120% 100% at 50% 10%, #f8f2df 0%, #f3ead0 60%, #ecdfb9 100%);
+    color: #2b2418; text-align: center;
+  }
+  .etym-top { position: absolute; top: 170px; left: 0; right: 0; font-style: italic; font-size: 42px; color: #a3701f; letter-spacing: .04em; }
+  .etym-word {
+    position: absolute; top: 460px; left: 0; right: 0;
+    font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-weight: 600;
+    font-size: 188px; line-height: 1; color: #b96f16;
+  }
+  .etym-translit { position: absolute; top: 720px; left: 0; right: 0; font-variant: small-caps; letter-spacing: .3em; font-size: 52px; color: #2b2418; }
+  .etym-quote { position: absolute; top: 815px; left: 140px; right: 140px; font-style: italic; font-size: 40px; color: #6b5c3d; line-height: 1.5; }
+  .etym-kicker { position: absolute; top: 1080px; left: 0; right: 0; font-size: 40px; color: #3a3222; }
+
+  /* Golden ritual card */
+  .golden {
+    background: linear-gradient(180deg, #eed394 0%, #e3b95f 34%, #cf9838 60%, #b5771f 62%, #daa844 66%, #b57b22 100%);
+    color: #2e1f0c;
+  }
+  .golden .post-copy { top: 130px; }
+  .golden .hook { color: #2e1f0c; font-size: 110px; }
+  .golden .g-sub {
+    font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-weight: 500;
+    font-size: 62px; margin-top: 34px; color: #4a3312;
+  }
+  .golden .wm { color: rgba(46, 31, 12, 0.72); }
+</style>
+
+<div class="wrap">
+  <header class="page">
+    <p class="eyebrow">Solo Therapy · Instagram</p>
+    <h1>Four posts in the Open Pathshala style</h1>
+    <p class="lede">Open Pathshala (54.6K followers) grew on one repeatable formula: a provocative claim in huge serif type, a twist in small type with a yellow marker swipe, parchment backgrounds with faint line art, and captions built around one precise word. Below, that formula translated to Solo Therapy — herbs, palo santo and ritual instead of Sanskrit, with the Spanish word doing the work their Sanskrit words do. Each sample is drawn at true 1080 × 1350 (4:5) proportions with a ready-to-paste bilingual caption.</p>
+  </header>
+
+  <section class="formula">
+    <h2>The formula, decoded</h2>
+    <ol>
+      <li><strong>One claim, huge serif type.</strong> A curiosity gap in under ten words — “Sanskrit has no word for religion.” Never a topic, always a tension.</li>
+      <li><strong>The twist in small type, highlighted.</strong> Two short lines: “Not a missing word.” then the payoff under a hand-drawn yellow marker swipe.</li>
+      <li><strong>Parchment + faint line art.</strong> One cream ground, one sepia illustration at low opacity. Every post shares it, so the grid reads as one body of work.</li>
+      <li><strong>One precise word per caption.</strong> They teach a Sanskrit word mid-caption. Solo Therapy’s version is Spanish and botanical Latin — <span class="note">which your bilingual EN/ES audience already speaks at home.</span></li>
+      <li><strong>Caption as a short essay.</strong> Hook line, a small story, the word, a takeaway, then “🔖 Save this…” — comments on their posts are full paragraphs, not emojis.</li>
+    </ol>
+  </section>
+
+  <!-- ============ SAMPLE 1 ============ -->
+  <section class="sample">
+    <div class="sample-head"><span class="kind">Sample 1 · Parchment hook</span><h2>Lavender</h2></div>
+    <div class="frame-col">
+      <div class="post-frame"><div class="post-inner parchment">
+        <svg class="art" viewBox="0 0 1080 1350" fill="none" aria-hidden="true">
+          <g stroke="#8a7a55" stroke-width="3" opacity="0.30">
+            <path d="M690 1290 C700 1130 680 1010 700 870 C706 830 716 800 726 780"/>
+            <path d="M700 960 C650 930 620 890 616 850" />
+            <path d="M700 1050 C760 1020 790 980 794 940" />
+          </g>
+          <g fill="#8a7a55" opacity="0.22">
+            <ellipse cx="734" cy="756" rx="16" ry="26" transform="rotate(14 734 756)"/>
+            <ellipse cx="708" cy="722" rx="15" ry="25" transform="rotate(-6 708 722)"/>
+            <ellipse cx="748" cy="712" rx="15" ry="25" transform="rotate(24 748 712)"/>
+            <ellipse cx="722" cy="678" rx="14" ry="24" transform="rotate(4 722 678)"/>
+            <ellipse cx="754" cy="668" rx="13" ry="22" transform="rotate(26 754 668)"/>
+            <ellipse cx="736" cy="634" rx="13" ry="22" transform="rotate(12 736 634)"/>
+            <ellipse cx="748" cy="596" rx="11" ry="19" transform="rotate(16 748 596)"/>
+          </g>
+          <g stroke="#8a7a55" stroke-width="2.4" opacity="0.20">
+            <path d="M330 1290 C340 1150 326 1060 342 950 C348 912 356 884 364 866"/>
+            <ellipse cx="370" cy="846" rx="13" ry="22" transform="rotate(10 370 846)"/>
+            <ellipse cx="348" cy="812" rx="12" ry="20" transform="rotate(-8 348 812)"/>
+            <ellipse cx="384" cy="804" rx="12" ry="20" transform="rotate(22 384 804)"/>
+            <ellipse cx="362" cy="772" rx="11" ry="18" transform="rotate(4 362 772)"/>
+          </g>
+        </svg>
+        <div class="post-copy">
+          <h3 class="hook">Lavender doesn’t put you to sleep.</h3>
+          <div class="subs">
+            <p class="sub">Not a sedative.</p>
+            <p class="sub"><span class="hl">A signal that you’re safe.</span></p>
+          </div>
+        </div>
+        <div class="wm">SOLO <span class="dot">·</span> THERAPY</div>
+      </div></div>
+      <div class="specs"><span class="chip">1080 × 1350 · 4:5</span><span class="chip">Cormorant Garamond + EB Garamond</span><span class="chip">#F1E9D4 · #241D10 · #E9BF46</span></div>
+    </div>
+    <div class="caption-card">
+      <h3>Caption — ready to paste</h3>
+      <p class="caption-text" id="cap1">Your body does not relax because you tell it to.
+
+It relaxes when something tells it the day is over. For centuries that signal was scent — lavender folded into pillows, hung over doorways, dropped into evening baths.
+
+Spanish keeps a precise word for what follows: sosiego.
+
+Not sleepiness.
+Not silence.
+The settling of a body that finally knows it is safe.
+
+Tonight, give the day a scent that means “enough.”
+
+🔖 Save this for the nights your mind won’t close.
+🌙 La lavanda no te duerme. Te avisa que ya puedes descansar.
+
+<span class="tags">#SoloTherapy #Lavender #Lavanda #HerbalTherapy #Aromatherapy #NightRitual #Sosiego #EssentialOils #BienestarNatural #SelfCareRitual</span></p>
+      <p class="why"><b>Why this works:</b> their “Karma is not your fate” pattern — take the thing everyone believes about your product and correct it. Links naturally to lavender oil, candles and dried lavender.</p>
+      <button class="copy" data-copy="cap1">Copy caption</button>
+    </div>
+  </section>
+
+  <!-- ============ SAMPLE 2 ============ -->
+  <section class="sample">
+    <div class="sample-head"><span class="kind">Sample 2 · Parchment hook</span><h2>Palo Santo</h2></div>
+    <div class="frame-col">
+      <div class="post-frame"><div class="post-inner parchment">
+        <svg class="art" viewBox="0 0 1080 1350" fill="none" aria-hidden="true">
+          <g stroke="#8a7a55" stroke-width="3.4" opacity="0.30">
+            <path d="M180 1132 C330 1108 520 1096 780 1090 C830 1088 870 1092 900 1098"/>
+            <path d="M186 1170 C340 1150 540 1140 786 1132 C838 1130 876 1132 902 1136"/>
+            <path d="M180 1132 C172 1146 172 1158 186 1170"/>
+            <path d="M900 1098 C912 1110 912 1124 902 1136"/>
+            <path d="M470 1100 C480 1070 500 1046 530 1030"/>
+          </g>
+          <path d="M640 1078 C600 990 680 930 636 848 C600 780 660 720 630 650 C606 592 650 540 640 480"
+                stroke="#8a7a55" stroke-width="3" opacity="0.22" stroke-linecap="round"/>
+          <path d="M660 1080 C640 1010 700 960 668 880 C644 818 690 764 668 700"
+                stroke="#8a7a55" stroke-width="2.4" opacity="0.15" stroke-linecap="round"/>
+        </svg>
+        <div class="post-copy">
+          <h3 class="hook">Palo santo cannot be harvested.</h3>
+          <div class="subs">
+            <p class="sub">The tree must fall on its own.</p>
+            <p class="sub"><span class="hl">Then rest for years.</span></p>
+          </div>
+        </div>
+        <div class="wm">SOLO <span class="dot">·</span> THERAPY</div>
+      </div></div>
+      <div class="specs"><span class="chip">1080 × 1350 · 4:5</span><span class="chip">Cormorant Garamond + EB Garamond</span><span class="chip">#F1E9D4 · #241D10 · #E9BF46</span></div>
+    </div>
+    <div class="caption-card">
+      <h3>Caption — ready to paste</h3>
+      <p class="caption-text" id="cap2">Palo santo cannot be harvested.
+
+The tree must fall on its own — and then it must rest. Years on the forest floor while the wood slowly turns its sap into resin, and the resin into the fragrance you know.
+
+Cut the tree early and you get nothing. The scent only exists because nobody rushed it.
+
+Spanish has the exact word: madurar.
+
+Not to wait.
+Not to age.
+To ripen into what you were always going to be — on your own time.
+
+Whatever you are becoming, it is allowed to take years.
+
+🔖 Save this for the seasons that feel slow.
+🌳 El palo santo no se corta. Se espera.
+
+<span class="tags">#SoloTherapy #PaloSanto #HolyWood #Smudging #EnergyCleansing #SlowLiving #Madurar #RitualsTherapy #LimpiaEnergetica #Bienestar</span></p>
+      <p class="why"><b>Why this works:</b> their “Sanskrit has no word for religion” pattern — a true, surprising fact about your own product that doubles as a life lesson. This is also an ethics story: it quietly tells buyers your palo santo is sustainably gathered.</p>
+      <button class="copy" data-copy="cap2">Copy caption</button>
+    </div>
+  </section>
+
+  <!-- ============ SAMPLE 3 ============ -->
+  <section class="sample">
+    <div class="sample-head"><span class="kind">Sample 3 · Etymology card</span><h2>Manzanilla</h2></div>
+    <div class="frame-col">
+      <div class="post-frame"><div class="post-inner etym">
+        <svg class="art" viewBox="0 0 1080 1350" fill="none" aria-hidden="true" style="position:absolute; inset:0;">
+          <g stroke="#d9b45a" stroke-width="2.5" opacity="0.35">
+            <circle cx="540" cy="560" r="330"/>
+            <circle cx="540" cy="560" r="252"/>
+            <ellipse cx="540" cy="392" rx="60" ry="168"/>
+            <ellipse cx="540" cy="392" rx="60" ry="168" transform="rotate(45 540 560)"/>
+            <ellipse cx="540" cy="392" rx="60" ry="168" transform="rotate(90 540 560)"/>
+            <ellipse cx="540" cy="392" rx="60" ry="168" transform="rotate(135 540 560)"/>
+            <ellipse cx="540" cy="392" rx="60" ry="168" transform="rotate(180 540 560)"/>
+            <ellipse cx="540" cy="392" rx="60" ry="168" transform="rotate(225 540 560)"/>
+            <ellipse cx="540" cy="392" rx="60" ry="168" transform="rotate(270 540 560)"/>
+            <ellipse cx="540" cy="392" rx="60" ry="168" transform="rotate(315 540 560)"/>
+          </g>
+        </svg>
+        <div class="etym-top">manzanilla = “little apple”</div>
+        <div class="etym-word">manzanilla</div>
+        <div class="etym-translit">chamomile</div>
+        <div class="etym-quote">named for the sweet apple scent<br>the flowers release when you brush them</div>
+        <div class="etym-kicker">Not a flower. <span class="hl">A memory that steeps.</span></div>
+        <div class="wm">SOLO <span class="dot">·</span> THERAPY</div>
+      </div></div>
+      <div class="specs"><span class="chip">1080 × 1350 · 4:5</span><span class="chip">Cormorant Garamond italic display</span><span class="chip">#F3EAD0 · #B96F16 · #D9B45A</span></div>
+    </div>
+    <div class="caption-card">
+      <h3>Caption — ready to paste</h3>
+      <p class="caption-text" id="cap3">Before it was a tea, it was a nickname.
+
+Manzanilla — “little apple.” The Spanish name for chamomile, given centuries ago for the sweet apple scent the flowers release when you brush past them in a field.
+
+Somewhere along the way, a whole culture of care got folded into that one word. A cup your abuela made without asking what was wrong. A remedy that was also a way of saying quédate — stay a while.
+
+Not a flower.
+Not a remedy.
+A memory that steeps.
+
+🔖 Save this for your next cup.
+🍎 Manzanilla: la abuela de todos los tés.
+
+<span class="tags">#SoloTherapy #Manzanilla #Chamomile #HerbalTea #TeaRitual #HerbalTherapy #TeCasero #RemediosCaseros #Etimologia #CrystalTeaInfuser</span></p>
+      <p class="why"><b>Why this works:</b> a direct translation of their “guru = heavy / gurutva” etymology card. Their Sanskrit-word posts are their most-shared format; your Spanish botanical names give you an endless series (romero, salvia, ruda, copal…). Ties to dried chamomile and the crystal tea infusers.</p>
+      <button class="copy" data-copy="cap3">Copy caption</button>
+    </div>
+  </section>
+
+  <!-- ============ SAMPLE 4 ============ -->
+  <section class="sample">
+    <div class="sample-head"><span class="kind">Sample 4 · Golden ritual</span><h2>Sunday Smoke</h2></div>
+    <div class="frame-col">
+      <div class="post-frame"><div class="post-inner golden">
+        <svg class="art" viewBox="0 0 1080 1350" fill="none" aria-hidden="true" style="position:absolute; inset:0;">
+          <defs>
+            <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fff3cf" stop-opacity="0.95"/>
+              <stop offset="55%" stop-color="#f7dd93" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#f7dd93" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="540" cy="836" r="300" fill="url(#sun)"/>
+          <circle cx="540" cy="822" r="86" fill="#fdf2cd" opacity="0.95"/>
+          <g stroke="#fbe8ad" stroke-linecap="round" opacity="0.75">
+            <path d="M420 906 H660" stroke-width="7"/>
+            <path d="M450 946 H630" stroke-width="6"/>
+            <path d="M472 988 H608" stroke-width="5"/>
+            <path d="M492 1032 H588" stroke-width="4"/>
+            <path d="M508 1078 H572" stroke-width="4"/>
+            <path d="M518 1126 H562" stroke-width="3"/>
+          </g>
+          <g opacity="0.85">
+            <path d="M812 1180 L872 1214" stroke="#4a2f10" stroke-width="16" stroke-linecap="round"/>
+            <circle cx="806" cy="1176" r="7" fill="#ffdca0"/>
+            <path d="M804 1168 C780 1090 850 1030 812 950 C782 884 842 820 806 748 C778 690 826 640 810 580"
+                  stroke="#fff6e0" stroke-width="6" opacity="0.7" stroke-linecap="round"/>
+            <path d="M816 1160 C840 1080 776 1030 820 946 C852 884 800 826 838 756"
+                  stroke="#fff6e0" stroke-width="4" opacity="0.45" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <div class="post-copy">
+          <h3 class="hook">The smoke was never for the room.</h3>
+          <p class="g-sub">It was for you.</p>
+        </div>
+        <div class="wm">SOLO <span class="dot">·</span> THERAPY</div>
+      </div></div>
+      <div class="specs"><span class="chip">1080 × 1350 · 4:5</span><span class="chip">Text top-left, image carries the rest</span><span class="chip">#EED394 → #B5771F</span></div>
+    </div>
+    <div class="caption-card">
+      <h3>Caption — ready to paste</h3>
+      <p class="caption-text" id="cap4">The smoke was never for the room.
+
+Rooms do not hold on to bad days. People do. When you light palo santo or sage and walk the corners of your home, the house is not what changes.
+
+You are marking an umbral — a threshold. On one side, everything the week did to you. On the other, the evening you decided to have instead.
+
+The smoke is just the line you draw between them.
+
+🔖 Save this for Sunday night.
+🕯️ El humo no limpia la casa. Te limpia a ti.
+
+<span class="tags">#SoloTherapy #SmudgeRitual #PaloSanto #SageSmudge #EnergyReset #Umbral #RitualsTherapy #SundayReset #LimpiaEspiritual #NochesDeRitual</span></p>
+      <p class="why"><b>Why this works:</b> their golden cinematic format (“He asked whether the dog could come”) — an emotional story-hook over warm imagery, posted between parchment cards so the grid alternates texture. For the real post, use a warm photo of smoke or a lit bundle in this palette; the layout and type placement stay as shown.</p>
+      <button class="copy" data-copy="cap4">Copy caption</button>
+    </div>
+  </section>
+
+  <footer class="page">
+    <p>Production notes: post at 1080 × 1350 so the feed shows the full card (the grid crops to square — all four keep their headline inside the center square). Fonts are Cormorant Garamond and EB Garamond, both free on Google Fonts and available in Canva. Keep the watermark, cream ground and marker-yellow identical on every post so the grid reads as one series, the way theirs does. Suggested cadence, mirroring theirs: two parchment hooks, one etymology card, one golden ritual per week.</p>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var frames = document.querySelectorAll('.post-frame');
+    function fit() {
+      frames.forEach(function (f) {
+        var inner = f.querySelector('.post-inner');
+        if (inner) inner.style.transform = 'scale(' + (f.clientWidth / 1080) + ')';
+      });
+    }
+    if ('ResizeObserver' in window) {
+      var ro = new ResizeObserver(fit);
+      frames.forEach(function (f) { ro.observe(f); });
+    }
+    window.addEventListener('resize', fit);
+    fit();
+
+    document.querySelectorAll('button.copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var el = document.getElementById(btn.getAttribute('data-copy'));
+        if (!el) return;
+        var text = el.innerText;
+        function done(ok) {
+          var old = btn.textContent;
+          btn.textContent = ok ? 'Copied ✓' : 'Select & copy manually';
+          setTimeout(function () { btn.textContent = old; }, 1800);
+        }
+        try {
+          navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+        } catch (e) { done(false); }
+      });
+    });
+  })();
+</script>

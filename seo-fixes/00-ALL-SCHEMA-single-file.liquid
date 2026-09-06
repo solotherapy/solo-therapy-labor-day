@@ -1,0 +1,286 @@
+{%- comment -%}
+  ============================================================================
+  Solo Therapy — ALL structured data in one snippet
+  ----------------------------------------------------------------------------
+  This replaces files 01, 02 and 03. Use THIS ONE unless you have a reason not
+  to — it is two edits instead of four, and it is trivially reversible.
+
+  Covers:
+    · Organization + WebSite ....... every page
+    · Product + Offer + Rating ..... product pages
+    · BreadcrumbList ............... product + collection pages
+    · FAQPage ...................... /pages/faqs
+    · Blog posting ................. blog articles (bonus — you have 9)
+
+  ----------------------------------------------------------------------------
+  INSTALL — two steps, about three minutes
+
+  0. FIRST: Online Store → Themes → "SoloTherapy New" → ⋯ → Duplicate.
+     Work on the duplicate. Do not edit the live theme.
+
+  1. On the duplicate: ⋯ → Edit code → Snippets → "Add a new snippet"
+     Name it exactly:  st-schema
+     Paste this whole file in. Save.
+
+  2. Open  layout/theme.liquid
+     Find  </head>
+     Put this on the line directly above it:
+
+         {% render 'st-schema' %}
+
+     Save.
+
+  That is the entire install. Every schema type below is now live on the
+  correct template — no product-template edits, no per-page work.
+
+  ----------------------------------------------------------------------------
+  BEFORE PUBLISHING — set the address, line 46
+
+  Facebook says "Woodland, CA". The street address and 818 area code both say
+  WOODLAND HILLS. Etsy says Porter Ranch. Three different answers.
+
+  Publishing a wrong address in schema is worse than publishing none — Google
+  is slow to unlearn a business location. Set the three values below to whatever
+  is actually correct before you publish this theme.
+
+  ----------------------------------------------------------------------------
+  TO REVERSE: delete the one line from theme.liquid. That's it.
+  ============================================================================
+{%- endcomment -%}
+
+{%- liquid
+  assign st_street = '21781 Ventura Blvd #143'
+  assign st_city   = 'Woodland Hills'
+  assign st_region = 'CA'
+  assign st_phone  = '+1-818-534-7892'
+  assign st_email  = 'help@solotherapy.com'
+-%}
+
+{%- comment -%} ---------- Organization + WebSite — every page ---------- {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ shop.name | json }},
+  "url": {{ shop.url | json }},
+  "description": "Organic dried herbs, roots, palo santo, resin incense, essential oils and crystal tea infusers for ritual and wellness. Hierbas y productos espirituales.",
+  "email": {{ st_email | json }},
+  "telephone": {{ st_phone | json }},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ st_street | json }},
+    "addressLocality": {{ st_city | json }},
+    "addressRegion": {{ st_region | json }},
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://www.facebook.com/SoloTherapy/",
+    "https://www.instagram.com/solotherapy/"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ shop.name | json }},
+  "url": {{ shop.url | json }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": {{ shop.url | append: '/search?q={search_term_string}' | json }}
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+
+{%- comment -%} ---------- Product + Offer + AggregateRating ---------- {%- endcomment -%}
+{%- if template.name == 'product' and product -%}
+{%- liquid
+  assign v = product.selected_or_first_available_variant
+  assign rating_value = product.metafields.reviews.rating.value.rating
+  assign rating_count = product.metafields.reviews.rating_count.value
+-%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": {{ product.title | strip_html | json }},
+  "url": {{ shop.url | append: product.url | json }},
+  {%- if product.images.size > 0 %}
+  "image": [
+    {%- for image in product.images limit: 5 -%}
+      {{ image | image_url: width: 1200 | prepend: "https:" | json }}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ],
+  {%- endif %}
+  "description": {{ product.description | strip_html | strip_newlines | truncate: 500 | json }},
+  {%- if v.sku != blank %}
+  "sku": {{ v.sku | json }},
+  {%- endif %}
+  "brand": {
+    "@type": "Brand",
+    "name": {%- if product.vendor != blank %} {{ product.vendor | json }} {%- else %} {{ shop.name | json }} {%- endif %}
+  },
+  {%- comment -%}
+    Ratings render ONLY when a rating actually exists. Never emit a rating that
+    is not visible on the page — Google treats that as a violation and can
+    issue a manual action against the whole domain.
+  {%- endcomment -%}
+  {%- if rating_count and rating_count > 0 %}
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": {{ rating_value | json }},
+    "reviewCount": {{ rating_count | json }}
+  },
+  {%- endif %}
+  {%- if product.variants.size > 1 %}
+  "offers": [
+    {%- for variant in product.variants -%}
+    {
+      "@type": "Offer",
+      "name": {{ variant.title | json }},
+      "url": {{ shop.url | append: product.url | append: '?variant=' | append: variant.id | json }},
+      {%- if variant.sku != blank %}
+      "sku": {{ variant.sku | json }},
+      {%- endif %}
+      "price": {{ variant.price | divided_by: 100.0 | json }},
+      "priceCurrency": {{ cart.currency.iso_code | json }},
+      "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+      "itemCondition": "https://schema.org/NewCondition"
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+  {%- else %}
+  "offers": {
+    "@type": "Offer",
+    "url": {{ shop.url | append: product.url | json }},
+    "price": {{ v.price | divided_by: 100.0 | json }},
+    "priceCurrency": {{ cart.currency.iso_code | json }},
+    "availability": "https://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+  {%- endif %}
+}
+</script>
+{%- endif -%}
+
+
+{%- comment -%} ---------- BreadcrumbList — product + collection ---------- {%- endcomment -%}
+{%- if template.name == 'product' or template.name == 'collection' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {{ shop.url | json }}
+    }
+    {%- if template.name == 'collection' and collection -%}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ collection.title | json }}
+    }
+    {%- elsif template.name == 'product' -%}
+      {%- if collection -%}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ collection.title | json }},
+      "item": {{ shop.url | append: collection.url | json }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ product.title | strip_html | json }}
+    }
+      {%- else -%}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ product.title | strip_html | json }}
+    }
+      {%- endif -%}
+    {%- endif -%}
+  ]
+}
+</script>
+{%- endif -%}
+
+
+{%- comment -%} ---------- FAQPage — /pages/faqs ---------- {%- endcomment -%}
+{%- comment -%}
+  These two Q&As are transcribed verbatim from your live FAQ page. Google
+  requires FAQ markup to match the visible text. If you edit the page copy,
+  edit this block to match or the markup becomes invalid.
+
+  Your FAQ page has only 2 questions (~550 characters). Adding 5–8 more real
+  ones — international shipping, whether the herbs are organic, how to store
+  dried herbs, wholesale — would help you more than this markup does.
+{%- endcomment -%}
+{%- if page.handle == 'faqs' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does it take to ship?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your items are shipped within 24 hours of placing your order. Currently, we offer standard shipping which can take 5-7 business days once shipped, and expedited shipping which takes 2-4 business days to deliver."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your return policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your experience is so important to us. We offer 30-day returns for a full refund, no questions asked. All we ask is that you pay for shipping and handling to return your item. Once we receive your item, your refund should show up on your debit or credit card within 2-3 days."
+      }
+    }
+  ]
+}
+</script>
+{%- endif -%}
+
+
+{%- comment -%} ---------- BlogPosting — blog articles ---------- {%- endcomment -%}
+{%- if template.name == 'article' and article -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ article.title | strip_html | truncate: 110 | json }},
+  "url": {{ shop.url | append: article.url | json }},
+  "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%z' | json }},
+  "dateModified": {{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S%z' | json }},
+  {%- if article.image %}
+  "image": {{ article.image | image_url: width: 1200 | prepend: "https:" | json }},
+  {%- endif %}
+  "description": {{ article.excerpt_or_content | strip_html | strip_newlines | truncate: 300 | json }},
+  "author": {
+    "@type": "Organization",
+    "name": {{ shop.name | json }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    "url": {{ shop.url | json }}
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ shop.url | append: article.url | json }}
+  }
+}
+</script>
+{%- endif -%}

@@ -1,0 +1,99 @@
+{%- comment -%}
+  ============================================================================
+  Solo Therapy — Product structured data (JSON-LD)
+  ----------------------------------------------------------------------------
+  WHERE THIS GOES
+    NOTE: 00-ALL-SCHEMA-single-file.liquid supersedes this file. Use that
+    instead unless you specifically want the schema split across files.
+
+    1. Shopify admin → Online Store → Themes → ... → Edit code
+    2. Snippets → "Add a new snippet" → name it exactly: st-product-schema
+    3. Paste this entire file in, Save.
+    4. Open sections/template--product.liquid  (verified: this is the exact
+       filename in your theme). At the very end of the file, add this line:
+
+           {% render 'st-product-schema', product: product %}
+
+  WHY
+    The store currently emits zero JSON-LD. This is what makes price,
+    availability and review stars eligible to appear in Google results.
+
+  NOTE ON REVIEW STARS
+    The aggregateRating block only renders when a rating actually exists.
+    Never emit ratings that aren't visible on the page — Google treats that as
+    a structured-data violation and can issue a manual action. This snippet is
+    written so that can't happen accidentally.
+  ============================================================================
+{%- endcomment -%}
+
+{%- liquid
+  assign p = product | default: product
+  assign v = p.selected_or_first_available_variant
+  assign rating_value = p.metafields.reviews.rating.value.rating
+  assign rating_count = p.metafields.reviews.rating_count.value
+-%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": {{ p.title | strip_html | json }},
+  "url": {{ shop.url | append: p.url | json }},
+  {%- if p.images.size > 0 %}
+  "image": [
+    {%- for image in p.images limit: 5 -%}
+      {{ image | image_url: width: 1200 | prepend: "https:" | json }}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ],
+  {%- endif %}
+  "description": {{ p.description | strip_html | strip_newlines | truncate: 500 | json }},
+  {%- if v.sku != blank %}
+  "sku": {{ v.sku | json }},
+  {%- endif %}
+  {%- if p.vendor != blank %}
+  "brand": {
+    "@type": "Brand",
+    "name": {{ p.vendor | json }}
+  },
+  {%- else %}
+  "brand": {
+    "@type": "Brand",
+    "name": "Solo Therapy"
+  },
+  {%- endif %}
+  {%- if rating_count and rating_count > 0 %}
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": {{ rating_value | json }},
+    "reviewCount": {{ rating_count | json }}
+  },
+  {%- endif %}
+  {%- if p.variants.size > 1 %}
+  "offers": [
+    {%- for variant in p.variants -%}
+    {
+      "@type": "Offer",
+      "name": {{ variant.title | json }},
+      "url": {{ shop.url | append: p.url | append: '?variant=' | append: variant.id | json }},
+      {%- if variant.sku != blank %}
+      "sku": {{ variant.sku | json }},
+      {%- endif %}
+      "price": {{ variant.price | divided_by: 100.0 | json }},
+      "priceCurrency": {{ cart.currency.iso_code | json }},
+      "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+      "itemCondition": "https://schema.org/NewCondition"
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+  {%- else %}
+  "offers": {
+    "@type": "Offer",
+    "url": {{ shop.url | append: p.url | json }},
+    "price": {{ v.price | divided_by: 100.0 | json }},
+    "priceCurrency": {{ cart.currency.iso_code | json }},
+    "availability": "https://schema.org/{% if p.available %}InStock{% else %}OutOfStock{% endif %}",
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+  {%- endif %}
+}
+</script>

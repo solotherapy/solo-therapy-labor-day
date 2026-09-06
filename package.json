@@ -1,0 +1,28 @@
+{
+  "name": "solo-therapy-labor-day",
+  "version": "1.0.0",
+  "description": "AI-generated cinematic Labor Day video for SOLO THERAPY",
+  "type": "module",
+  "scripts": {
+    "install:remotion": "npm install",
+    "dev": "remotion studio",
+    "preview": "remotion studio",
+    "generate:scenes": "tsx scripts/generate-scenes.ts",
+    "render": "tsx scripts/render-video.ts",
+    "build": "npm run generate:scenes && npm run render",
+    "clean": "rm -rf out public/assets/generated"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remotion": "^4.0.521"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "dotenv": "^16.3.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}

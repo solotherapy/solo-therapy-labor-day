@@ -1,0 +1,114 @@
+{%- comment -%}
+  ============================================================================
+  Solo Therapy — Organization + Breadcrumb structured data
+  ----------------------------------------------------------------------------
+  NOTE: 00-ALL-SCHEMA-single-file.liquid supersedes this file. Use that
+  instead unless you specifically want the schema split across files.
+
+  WHERE THIS GOES
+    1. Snippets → Add a new snippet → name it exactly: st-global-schema
+    2. Paste this entire file in, Save.
+    3. Open layout/theme.liquid and add this line immediately before </head>:
+
+           {% render 'st-global-schema' %}
+
+  BEFORE YOU PUBLISH — CONFIRM THE ADDRESS
+    Facebook currently lists "Woodland, CA" but the street address and the 818
+    area code both point to WOODLAND HILLS. Those are two different cities
+    about 350 miles apart, and Etsy says Porter Ranch. Publishing the wrong one
+    in schema is worse than publishing none, because it teaches Google an
+    incorrect business location that is slow to unlearn.
+
+    Set the three values below, then delete this comment block.
+  ============================================================================
+{%- endcomment -%}
+
+{%- liquid
+  assign st_street  = '21781 Ventura Blvd #143'
+  assign st_city    = 'Woodland Hills'
+  assign st_phone   = '+1-818-534-7892'
+-%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Solo Therapy",
+  "url": {{ shop.url | json }},
+  "logo": {{ 'SoloTherapy_194x194_crop_center.png' | file_url | prepend: 'https:' | json }},
+  "description": "Organic dried herbs, roots, palo santo, resin incense, essential oils and crystal tea infusers for ritual and wellness. Hierbas y productos espirituales.",
+  "email": "help@solotherapy.com",
+  "telephone": {{ st_phone | json }},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ st_street | json }},
+    "addressLocality": {{ st_city | json }},
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://www.facebook.com/SoloTherapy/",
+    "https://www.instagram.com/solotherapy/"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Solo Therapy",
+  "url": {{ shop.url | json }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": {{ shop.url | append: '/search?q={search_term_string}' | json }}
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+{%- comment -%} Breadcrumbs — renders on product and collection pages only. {%- endcomment -%}
+{%- if template.name == 'product' or template.name == 'collection' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {{ shop.url | json }}
+    }
+    {%- if template.name == 'product' and collection -%}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ collection.title | json }},
+      "item": {{ shop.url | append: collection.url | json }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ product.title | strip_html | json }}
+    }
+    {%- elsif template.name == 'product' -%}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ product.title | strip_html | json }}
+    }
+    {%- elsif template.name == 'collection' -%}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ collection.title | json }}
+    }
+    {%- endif -%}
+  ]
+}
+</script>
+{%- endif -%}
