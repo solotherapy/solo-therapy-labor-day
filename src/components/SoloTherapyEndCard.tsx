@@ -3,6 +3,7 @@ import {
   AbsoluteFill,
   Img,
   interpolate,
+  random,
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
@@ -49,8 +50,8 @@ export const SoloTherapyEndCard: React.FC<SoloTherapyEndCardProps> = ({
 
   const taglineOpacity = interpolate(
     frameInSequence,
-    [80, 100, 130, 150],
-    [0, 1, 1, 0],
+    [80, 100],
+    [0, 1],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
@@ -64,8 +65,8 @@ export const SoloTherapyEndCard: React.FC<SoloTherapyEndCardProps> = ({
 
   const logoOpacity = interpolate(
     frameInSequence,
-    [100, 120, 130, 150],
-    [0, 1, 1, 0],
+    [100, 120],
+    [0, 1],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
@@ -142,11 +143,11 @@ export const SoloTherapyEndCard: React.FC<SoloTherapyEndCardProps> = ({
         {[...Array(8)].map((_, i) => (
           <circle
             key={i}
-            cx={Math.random() * 1080}
-            cy={Math.random() * 1920}
-            r={Math.random() * 3}
+            cx={random(`px-${i}`) * 1080}
+            cy={random(`py-${i}`) * 1920}
+            r={random(`pr-${i}`) * 3}
             fill={STYLE.colors.deepOlive}
-            opacity={0.1 + Math.random() * 0.15}
+            opacity={0.1 + random(`po-${i}`) * 0.15}
           />
         ))}
       </svg>
