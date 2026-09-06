@@ -77,16 +77,13 @@ async function generateScenes() {
   console.log('='.repeat(50));
 
   if (errorCount === SCENE_CLIPS.length) {
-    console.error(
-      '\n⚠️  All clips failed. Check your API key and internet connection.'
-    );
-    console.error(`   Set FAL_API_KEY in .env file`);
-    process.exit(1);
-  }
-
-  if (errorCount > 0) {
     console.log(
-      '\n⚠️  Some clips failed. Composition will use placeholders.'
+      '\n⚠️  All clips failed. Using placeholders for composition.'
+    );
+    console.log(`   Check your API key and top up your FAL balance if needed.`);
+  } else if (errorCount > 0) {
+    console.log(
+      '\n⚠️  Some clips failed. Composition will use placeholders for those.'
     );
   }
 
