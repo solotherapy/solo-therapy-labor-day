@@ -1,5 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, useCurrentFrame, interpolate, random } from 'remotion';
+import { ProfessionEmblem } from './ProfessionEmblem';
 
 interface PlaceholderClipProps {
   startFrame: number;
@@ -273,6 +274,9 @@ export const PlaceholderClip: React.FC<PlaceholderClipProps> = ({
               'radial-gradient(ellipse 90% 75% at 50% 46%, transparent 45%, rgba(0,0,0,0.38) 100%)',
           }}
         />
+
+        {/* Profession emblem for this shot */}
+        <ProfessionEmblem seed={seed} />
       </AbsoluteFill>
     </AbsoluteFill>
   );
