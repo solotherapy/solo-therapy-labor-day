@@ -1,4 +1,4 @@
-import { STYLE } from '../config.js';
+import { STYLE } from '../config';
 
 export const palette = STYLE.colors;
 

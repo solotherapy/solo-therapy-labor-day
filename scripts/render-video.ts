@@ -1,5 +1,5 @@
 import { spawnSync } from 'child_process';
-import { PATHS, VIDEO_CONFIG } from '../src/config.js';
+import { PATHS, VIDEO_CONFIG } from '../src/config';
 import { mkdirSync } from 'fs';
 import { dirname } from 'path';
 

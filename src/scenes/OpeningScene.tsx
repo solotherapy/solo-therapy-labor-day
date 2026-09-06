@@ -1,9 +1,9 @@
 import React from 'react';
 import { Sequence } from 'remotion';
-import { CinematicVideo } from '../components/CinematicVideo.js';
-import { CinematicText } from '../components/CinematicText.js';
-import { SCENE_DURATIONS } from '../config.js';
-import { getGeneratedClipPath } from '../lib/asset.js';
+import { CinematicVideo } from '../components/CinematicVideo';
+import { CinematicText } from '../components/CinematicText';
+import { SCENE_DURATIONS } from '../config';
+import { getGeneratedClipPath } from '../lib/asset';
 
 const durationFrames = SCENE_DURATIONS.opening * 30; // 150 frames = 5 seconds
 

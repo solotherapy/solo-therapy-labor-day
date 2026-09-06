@@ -1,8 +1,8 @@
 import React from 'react';
 import { AbsoluteFill, Video, useCurrentFrame, interpolate, Img } from 'remotion';
-import { STYLE } from '../config.js';
-import { PlaceholderClip } from './PlaceholderClip.js';
-import { existsSync } from 'fs';
+import { STYLE } from '../config';
+import { PlaceholderClip } from './PlaceholderClip';
+import { clipExists } from '../lib/asset';
 
 interface CinematicVideoProps {
   src: string;
@@ -24,13 +24,8 @@ export const CinematicVideo: React.FC<CinematicVideoProps> = ({
   fallbackText,
 }) => {
   const frame = useCurrentFrame();
-  const isVisible = frame >= startFrame && frame < startFrame + duration;
 
-  // Check if file exists
-  const fileExists = existsSync(src);
-
-  if (!fileExists) {
-    console.warn(`Video file not found: ${src}, using placeholder`);
+  if (!clipExists(src)) {
     return (
       <PlaceholderClip
         startFrame={startFrame}

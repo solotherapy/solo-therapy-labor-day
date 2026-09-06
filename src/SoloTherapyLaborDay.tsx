@@ -1,14 +1,14 @@
 import React from 'react';
 import { AbsoluteFill, useVideoConfig, Audio } from 'remotion';
-import { VIDEO_CONFIG, PATHS } from './config.js';
-import { OpeningScene } from './scenes/OpeningScene.js';
-import { WorkersScene } from './scenes/WorkersScene.js';
-import { HandsScene } from './scenes/HandsScene.js';
-import { HumanStoryScene } from './scenes/HumanStoryScene.js';
-import { ClosingScene } from './scenes/ClosingScene.js';
-import { EndCardScene } from './scenes/EndCardScene.js';
-import { GlobalFilmOverlay } from './components/GlobalFilmOverlay.js';
-import { hasMusic } from './lib/asset.js';
+import { VIDEO_CONFIG } from './config';
+import { OpeningScene } from './scenes/OpeningScene';
+import { WorkersScene } from './scenes/WorkersScene';
+import { HandsScene } from './scenes/HandsScene';
+import { HumanStoryScene } from './scenes/HumanStoryScene';
+import { ClosingScene } from './scenes/ClosingScene';
+import { EndCardScene } from './scenes/EndCardScene';
+import { GlobalFilmOverlay } from './components/GlobalFilmOverlay';
+import { hasMusic, getMusicPath } from './lib/asset';
 
 export const SoloTherapyLaborDay: React.FC = () => {
   const { fps } = useVideoConfig();
@@ -28,7 +28,7 @@ export const SoloTherapyLaborDay: React.FC = () => {
       {/* Audio */}
       {hasAudio && (
         <Audio
-          src={PATHS.music}
+          src={getMusicPath()}
           volume={(frame: number) => {
             // Fade in first 2 seconds (60 frames at 30fps)
             if (frame < 60) {

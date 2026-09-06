@@ -1,6 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, useCurrentFrame, interpolate } from 'remotion';
-import { STYLE } from '../config.js';
+import { STYLE } from '../config';
 
 interface PlaceholderClipProps {
   startFrame: number;

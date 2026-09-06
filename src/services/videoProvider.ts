@@ -1,4 +1,4 @@
-import { VideoGenerationProvider } from '../types.js';
+import { VideoGenerationProvider } from '../types';
 
 export abstract class BaseVideoProvider implements VideoGenerationProvider {
   abstract generateClip(
@@ -12,7 +12,7 @@ export async function getVideoProvider(): Promise<VideoGenerationProvider> {
   const provider = process.env.VIDEO_PROVIDER || 'fal';
 
   if (provider === 'fal') {
-    const { FalProvider } = await import('./falProvider.js');
+    const { FalProvider } = await import('./falProvider');
     return new FalProvider();
   }
 

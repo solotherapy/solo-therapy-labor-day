@@ -1,7 +1,7 @@
 import React from 'react';
 import { Composition } from 'remotion';
-import { SoloTherapyLaborDay } from './SoloTherapyLaborDay.js';
-import { VIDEO_CONFIG } from './config.js';
+import { SoloTherapyLaborDay } from './SoloTherapyLaborDay';
+import { VIDEO_CONFIG } from './config';
 
 export const Root: React.FC = () => {
   return (

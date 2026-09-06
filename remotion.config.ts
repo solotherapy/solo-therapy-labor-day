@@ -1,5 +1,3 @@
-import { Config } from 'remotion';
+import { Config } from '@remotion/cli/config';
 
-Config.setVideoImageFormat('png');
-Config.setConcurrency(1);
-Config.setChunkSize('auto');
+Config.setVideoImageFormat('jpeg');

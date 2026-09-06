@@ -1,4 +1,4 @@
-import { SceneClip } from '../types.js';
+import { SceneClip } from '../types';
 
 export const SCENE_CLIPS: SceneClip[] = [
   // Scene 1: Opening - The day begins (0:00-0:05)

@@ -6,8 +6,8 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
-import { STYLE } from '../config.js';
-import { hasLogo, getLogoPath } from '../lib/asset.js';
+import { STYLE } from '../config';
+import { hasLogo, getLogoPath } from '../lib/asset';
 
 interface SoloTherapyEndCardProps {
   startFrame: number;

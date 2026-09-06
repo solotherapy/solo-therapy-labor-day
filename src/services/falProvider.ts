@@ -1,4 +1,4 @@
-import { BaseVideoProvider } from './videoProvider.js';
+import { BaseVideoProvider } from './videoProvider';
 import { writeFileSync } from 'fs';
 import { dirname } from 'path';
 import { mkdirSync } from 'fs';

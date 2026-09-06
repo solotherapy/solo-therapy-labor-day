@@ -6,7 +6,7 @@ import {
   useVideoConfig,
   spring,
 } from 'remotion';
-import { STYLE } from '../config.js';
+import { STYLE } from '../config';
 
 interface CinematicTextProps {
   text: string | string[];

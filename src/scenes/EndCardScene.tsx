@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sequence } from 'remotion';
-import { SoloTherapyEndCard } from '../components/SoloTherapyEndCard.js';
-import { SCENE_DURATIONS } from '../config.js';
+import { SoloTherapyEndCard } from '../components/SoloTherapyEndCard';
+import { SCENE_DURATIONS } from '../config';
 
 const startFrame =
   (SCENE_DURATIONS.opening +
