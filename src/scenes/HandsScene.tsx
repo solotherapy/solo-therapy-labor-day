@@ -80,7 +80,7 @@ export const HandsScene: React.FC = () => {
         text="Hands that build."
         startFrame={30}
         endFrame={120}
-        fontSize={52}
+        fontSize={72}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={15}
@@ -90,7 +90,7 @@ export const HandsScene: React.FC = () => {
         text="Hands that heal."
         startFrame={120}
         endFrame={200}
-        fontSize={52}
+        fontSize={72}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={15}
@@ -100,7 +100,7 @@ export const HandsScene: React.FC = () => {
         text="Hands that create."
         startFrame={200}
         endFrame={300}
-        fontSize={52}
+        fontSize={72}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={15}
@@ -110,7 +110,7 @@ export const HandsScene: React.FC = () => {
         text="Hands that care."
         startFrame={300}
         endFrame={durationFrames}
-        fontSize={52}
+        fontSize={72}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={15}

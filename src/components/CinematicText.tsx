@@ -84,9 +84,11 @@ export const CinematicText: React.FC<CinematicTextProps> = ({
               fontFamily: fontFamily_,
               color,
               fontWeight: fontFamily === 'serif' ? 400 : 500,
-              lineHeight: 1.2,
+              lineHeight: 1.25,
               margin: '0.3em 0',
-              letterSpacing: fontFamily === 'serif' ? '-0.02em' : '0.01em',
+              letterSpacing: fontFamily === 'serif' ? '-0.01em' : '0.01em',
+              textShadow:
+                '0 2px 28px rgba(0, 0, 0, 0.45), 0 1px 4px rgba(0, 0, 0, 0.3)',
             }}
           >
             {line}

@@ -31,6 +31,7 @@ export const CinematicVideo: React.FC<CinematicVideoProps> = ({
         startFrame={startFrame}
         duration={duration}
         text={fallbackText}
+        seed={src}
       />
     );
   }

@@ -53,7 +53,7 @@ export const HumanStoryScene: React.FC = () => {
         text="Behind every job"
         startFrame={30}
         endFrame={90}
-        fontSize={52}
+        fontSize={72}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={15}
@@ -63,7 +63,7 @@ export const HumanStoryScene: React.FC = () => {
         text="is a person."
         startFrame={75}
         endFrame={150}
-        fontSize={52}
+        fontSize={72}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={15}
@@ -73,7 +73,7 @@ export const HumanStoryScene: React.FC = () => {
         text="A story."
         startFrame={150}
         endFrame={210}
-        fontSize={52}
+        fontSize={72}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={15}
@@ -83,7 +83,7 @@ export const HumanStoryScene: React.FC = () => {
         text="A purpose."
         startFrame={210}
         endFrame={durationFrames}
-        fontSize={52}
+        fontSize={72}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={15}

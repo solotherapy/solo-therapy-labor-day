@@ -30,7 +30,7 @@ export const ClosingScene: React.FC = () => {
         text="Today, we honor the work."
         startFrame={30}
         endFrame={90}
-        fontSize={48}
+        fontSize={66}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={15}
@@ -40,7 +40,7 @@ export const ClosingScene: React.FC = () => {
         text={['And the people', 'behind it.']}
         startFrame={90}
         endFrame={durationFrames - 15}
-        fontSize={48}
+        fontSize={66}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={20}

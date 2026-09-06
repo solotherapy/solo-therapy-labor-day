@@ -23,7 +23,7 @@ export const OpeningScene: React.FC = () => {
         text={['Every day begins', 'with someone showing up.']}
         startFrame={30}
         endFrame={durationFrames - 15}
-        fontSize={64}
+        fontSize={82}
         fontFamily="serif"
         fadeInDuration={20}
         fadeOutDuration={15}

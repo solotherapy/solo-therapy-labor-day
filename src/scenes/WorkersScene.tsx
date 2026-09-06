@@ -58,7 +58,7 @@ export const WorkersScene: React.FC = () => {
         text="Different paths."
         startFrame={30}
         endFrame={90}
-        fontSize={56}
+        fontSize={76}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={15}
@@ -68,7 +68,7 @@ export const WorkersScene: React.FC = () => {
         text="Different skills."
         startFrame={90}
         endFrame={150}
-        fontSize={56}
+        fontSize={76}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={15}
@@ -78,7 +78,7 @@ export const WorkersScene: React.FC = () => {
         text="One shared dedication."
         startFrame={150}
         endFrame={durationFrames}
-        fontSize={56}
+        fontSize={76}
         fontFamily="serif"
         fadeInDuration={15}
         fadeOutDuration={15}
