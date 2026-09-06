@@ -53,10 +53,11 @@ const ICONS: { match: string; paths: React.ReactNode }[] = [
     match: 'worker-construction',
     paths: (
       <>
-        {/* Hard hat */}
-        <path d="M 56 118 C 56 80 82 62 100 62 C 118 62 144 80 144 118" />
-        <path d="M 42 120 Q 100 134 158 120" />
-        <line x1="100" y1="62" x2="100" y2="80" />
+        {/* Hard hat: flat wide brim with upturned tips, dome with ridge rib and brow band */}
+        <path d="M 38 112 Q 48 120 70 120 L 130 120 Q 152 120 162 112" />
+        <path d="M 62 120 C 62 90 82 74 100 74 C 118 74 138 90 138 120" />
+        <path d="M 84 76 L 84 66 Q 84 62 90 62 L 110 62 Q 116 62 116 66 L 116 76" />
+        <line x1="68" y1="104" x2="132" y2="104" />
       </>
     ),
   },
@@ -78,14 +79,17 @@ const ICONS: { match: string; paths: React.ReactNode }[] = [
     match: 'hands-farmer',
     paths: (
       <>
-        {/* Wheat */}
-        <line x1="100" y1="150" x2="100" y2="54" />
-        <path d="M 100 78 Q 84 72 80 56 Q 96 60 100 78" />
-        <path d="M 100 78 Q 116 72 120 56 Q 104 60 100 78" />
-        <path d="M 100 102 Q 84 96 80 80 Q 96 84 100 102" />
-        <path d="M 100 102 Q 116 96 120 80 Q 104 84 100 102" />
-        <path d="M 100 126 Q 84 120 80 104 Q 96 108 100 126" />
-        <path d="M 100 126 Q 116 120 120 104 Q 104 108 100 126" />
+        {/* Wheat: kernels hugging the stem, angled up, awns at the tip */}
+        <line x1="100" y1="150" x2="100" y2="52" />
+        <path d="M 100 76 Q 90 72 88 58 Q 98 62 100 76" />
+        <path d="M 100 76 Q 110 72 112 58 Q 102 62 100 76" />
+        <path d="M 100 96 Q 90 92 88 78 Q 98 82 100 96" />
+        <path d="M 100 96 Q 110 92 112 78 Q 102 82 100 96" />
+        <path d="M 100 116 Q 90 112 88 98 Q 98 102 100 116" />
+        <path d="M 100 116 Q 110 112 112 98 Q 102 102 100 116" />
+        <line x1="100" y1="52" x2="95" y2="38" />
+        <line x1="100" y1="52" x2="100" y2="36" />
+        <line x1="100" y1="52" x2="105" y2="38" />
       </>
     ),
   },
@@ -93,9 +97,9 @@ const ICONS: { match: string; paths: React.ReactNode }[] = [
     match: 'hands-firefighter',
     paths: (
       <>
-        {/* Flame */}
-        <path d="M 100 52 C 119 76 133 90 133 114 A 33 33 0 1 1 67 114 C 67 90 81 76 100 52 Z" />
-        <path d="M 100 98 C 108 107 114 113 114 124 A 14 14 0 1 1 86 124 C 86 113 92 107 100 98 Z" />
+        {/* Flame: asymmetric lick — tip bent right, left flank long and round */}
+        <path d="M 113 52 C 99 66 72 86 69 108 C 66 128 81 144 100 144 C 119 144 134 128 131 107 C 128 90 120 72 113 52 Z" />
+        <path d="M 101 98 C 106 107 111 114 109 122 A 12 12 0 1 1 87 122 C 88 111 94 105 101 98 Z" />
       </>
     ),
   },
@@ -175,7 +179,7 @@ const ICONS: { match: string; paths: React.ReactNode }[] = [
     paths: (
       <>
         {/* Heart */}
-        <path d="M 100 138 C 56 106 68 62 100 84 C 132 62 144 106 100 138 Z" />
+        <path d="M 100 135 C 56 103 68 59 100 81 C 132 59 144 103 100 135 Z" />
       </>
     ),
   },
